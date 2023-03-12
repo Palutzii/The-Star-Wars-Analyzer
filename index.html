@@ -5,10 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="assets/js/main.js" defer></script>
-    <!--<link rel="stylesheet" href="assets/sass/main.css">-->
+    <link rel="stylesheet" href="assets/sass/main.css">
     <title>The Star Wars Character Analyzer</title>
 </head>
 <body>
-    
+    <h1>Star Wars</h1>
+    <main class="main">
+        
+        <div class="character-select-container">
+            <h2>Choose your characters</h2>
+            <div class="character-select">
+                <select name="character1" id="character-1" class="select-character">
+                    <option value="select" default hidden>Select</option>
+                    <option value="10">Obi-Wan Kenobi</option>
+                    <option value="53">Kit Fisto</option>
+                    <option value="32">Qui-Gon Jinn</option>
+                    <option value="36">Jar Jar Binks</option>
+                    <option value="46">Ayala Secura</option>
+                    <option value="51">Mace Windu</option>
+                </select>
+                <button class="compare-characters-btn">Compare</button>
+                <select name="character2" id="character-2" class="select-character">
+                    <option value="select" default hidden>Select</option>
+                    <option value="44">Darth Maul</option>
+                    <option value="21">Darth Sidius</option>
+                    <option value="67">Dooku</option>
+                    <option value="69">Jango Fett</option>
+                    <option value="79">Grievous</option>
+                    <option value="70">Zam Wesell</option>
+                </select>
+            </div>
+            
+        </div>
+    </main>
 </body>
 </html>

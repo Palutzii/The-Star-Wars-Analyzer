@@ -1,8 +1,30 @@
 * {
     margin: 0;
     padding: 0;
+    color: #FFE81F;
 
-    @include fontRegular();
+    @include fontRegular("Orbitron");
+}
+
+select,
+button {
+    background-color: #222;
+    border: none;
+}
+
+select {
+    background-color: rgba(34, 34, 34, 0.3);
+    border-radius: 8px;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+}
+
+body {
+    background-image: url("../../../assets/img/background-img.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
 }
 
 .content-wrapper {
