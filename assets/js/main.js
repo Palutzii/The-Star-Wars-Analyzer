@@ -1,0 +1,1 @@
+import { Character } from "./components/character.js";
