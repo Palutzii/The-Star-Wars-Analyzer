@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    @include fontRegular();
+}
+
+.content-wrapper {
+    max-width: 67.5rem; //1080px
+    padding: 0 1rem;
+    margin: auto;
+    position: relative;
+  }
