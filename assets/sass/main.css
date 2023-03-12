@@ -1,0 +1,85 @@
+/* orbitron-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../../assets/fonts/orbitron-v25-latin-regular.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-regular.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* orbitron-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../fonts/orbitron-v25-latin-500.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-500.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* orbitron-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../../fonts/orbitron-v25-latin-600.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-600.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* orbitron-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../../fonts/orbitron-v25-latin-700.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* orbitron-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../../fonts/orbitron-v25-latin-800.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-800.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* orbitron-900 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../../fonts/orbitron-v25-latin-900.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-900.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+* {
+  margin: 0;
+  padding: 0;
+  color: #FFE81F;
+  font-family: "Orbitron", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+select,
+button {
+  background-color: #222;
+  border: none;
+}
+
+select {
+  background-color: rgba(34, 34, 34, 0.3);
+  border-radius: 8px;
+  padding: 10px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+body {
+  background-image: url("../../../assets/img/background-img.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.content-wrapper {
+  max-width: 67.5rem;
+  padding: 0 1rem;
+  margin: auto;
+  position: relative;
+}/*# sourceMappingURL=main.css.map */
