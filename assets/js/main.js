@@ -1,9 +1,34 @@
 import { Character } from "./components/character.js";
 
 let compareBtn = document.querySelector(".compare-characters-btn");
+// creating the characters
 let character1 = new Character();
 let character2 = new Character();
-
+//Getting images for characters, could be made better
+let imageObi = new Image();
+let imageKit = new Image();
+let imageQui = new Image();
+let imageBinks = new Image();
+let imageAyala = new Image();
+let imageMace = new Image();
+let imageMaul = new Image();
+let imageSidious = new Image();
+let imageDooku = new Image();
+let imageFett = new Image();
+let imageRobot = new Image();
+let imageWesell = new Image();
+imageObi.src = "../../assets/img/obi-wan-kenobi.png";
+imageKit.src = "../../assets/img/kit-fisto.png";
+imageQui = "../../assets/img/quin-gon-jinn.png";
+imageBinks.src = "../../assets/img/jar-jar-binks.png";
+imageAyala.src = "../../assets/img/ayala-secura.png";
+imageMace.src = "../../assets/img/mace-windu.png";
+imageMaul.src = "../../assets/img/darth-maul.png";
+imageSidious.src = "../../assets/img/darth-sidious.png";
+imageDooku.src = "../../assets/img/count-dooku.png";
+imageFett.src = "../../assets/img/jango-fett.png";
+imageRobot.src = "../../assets/img/grievous.png";
+imageWesell.src = "../../assets/img/zam-wesell.png";
 
 async function getData(url){
     let data = await fetch(url);
@@ -20,7 +45,7 @@ async function createCharacters(){
     let data1 = await getData("https://swapi.dev/api/people/" + value1);
     let data2 = await getData("https://swapi.dev/api/people/" + value2);
 
-    
+    // put character data to character attributes
     character1.name = data1.name;
     character1.gender = data1.gender;
     character1.height = data1.height;
@@ -51,6 +76,7 @@ let loadCharacters = async () => {
         
         compareBtn.addEventListener("click", async () => {
             createCharacters();
+            renderCharacter(character1,character2);
         })
 
 
