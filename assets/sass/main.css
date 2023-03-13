@@ -4,7 +4,7 @@
   font-family: "Orbitron";
   font-style: normal;
   font-weight: 400;
-  src: url("../../../assets/fonts/orbitron-v25-latin-regular.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-regular.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("../../../assets/fonts/orbitron-v25-latin-regular.woff2") format("woff2"), url("../../../assets/fonts/orbitron-v25-latin-regular.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* orbitron-500 - latin */
 @font-face {
@@ -12,7 +12,7 @@
   font-family: "Orbitron";
   font-style: normal;
   font-weight: 500;
-  src: url("../../fonts/orbitron-v25-latin-500.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-500.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("../../../assets/fonts/orbitron-v25-latin-500.woff2") format("woff2"), url("../../../assets/fonts/orbitron-v25-latin-500.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* orbitron-600 - latin */
 @font-face {
@@ -20,7 +20,7 @@
   font-family: "Orbitron";
   font-style: normal;
   font-weight: 600;
-  src: url("../../fonts/orbitron-v25-latin-600.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-600.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("../../../assets/fonts/orbitron-v25-latin-600.woff2") format("woff2"), url("../../../assets/fonts/orbitron-v25-latin-600.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* orbitron-700 - latin */
 @font-face {
@@ -28,7 +28,7 @@
   font-family: "Orbitron";
   font-style: normal;
   font-weight: 700;
-  src: url("../../fonts/orbitron-v25-latin-700.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("../../../assets/fonts/orbitron-v25-latin-700.woff2") format("woff2"), url("../../../assets/fonts/orbitron-v25-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* orbitron-800 - latin */
 @font-face {
@@ -36,7 +36,7 @@
   font-family: "Orbitron";
   font-style: normal;
   font-weight: 800;
-  src: url("../../fonts/orbitron-v25-latin-800.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-800.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("../../../assets/fonts/orbitron-v25-latin-800.woff2") format("woff2"), url("../../../assets/fonts/orbitron-v25-latin-800.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* orbitron-900 - latin */
 @font-face {
@@ -44,7 +44,7 @@
   font-family: "Orbitron";
   font-style: normal;
   font-weight: 900;
-  src: url("../../fonts/orbitron-v25-latin-900.woff2") format("woff2"), url("../../fonts/orbitron-v25-latin-900.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url("../../../assets/fonts/orbitron-v25-latin-900.woff2") format("woff2"), url("../../../assets/fonts/orbitron-v25-latin-900.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 * {
   margin: 0;
@@ -55,8 +55,7 @@
   font-weight: 400;
 }
 
-select,
-button {
+select {
   background-color: #222;
   border: none;
 }
@@ -92,7 +91,7 @@ body {
 }
 
 .title {
-  font-size: clamp(1.09rem, 0.49vw + 1rem, 1.58rem);
+  font-size: clamp(1.37rem, 0.74vw + 1.22rem, 2.11rem);
   text-align: center;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -104,4 +103,58 @@ body {
   .title {
     font-size: clamp(1.71rem, 1.1vw + 1.49rem, 2.81rem);
   }
+}
+
+.character-select-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.character-select-container h2 {
+  font-size: clamp(0.88rem, 0.31vw + 0.81rem, 1.19rem);
+  font-size: clamp(1.09rem, 0.49vw + 1rem, 1.58rem);
+  margin-bottom: 1rem;
+  font-family: "Orbitron", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.character-select-and-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.character-select-and-btn button {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #222;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+
+.character-select {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.article-main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.char-name-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.char-name-container h2 {
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */

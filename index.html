@@ -13,37 +13,41 @@
         <h1 class="title">Star Wars Character Analyzer</h1>
     </header>
     
-    <main class="main">
+    <main class="main content-wrapper">
         
-        <div class="character-select-container content-wrapper">
+        <div class="character-select-container">
             <h2>Choose your characters</h2>
-            <div class="character-select">
-                <select name="character1" id="character-1" class="select-character">
-                    <option value="select" default selected hidden>Select</option>
-                    <option value="10">Obi-Wan Kenobi</option>
-                    <option value="53">Kit Fisto</option>
-                    <option value="32">Qui-Gon Jinn</option>
-                    <option value="36">Jar Jar Binks</option>
-                    <option value="46">Ayala Secura</option>
-                    <option value="51">Mace Windu</option>
-                </select>
+            <div class="character-select-and-btn">
+                <div class="character-select">
+                    <select name="character1" id="character-1" class="select-character">
+                        <option value="" selected>Select</option>
+                        <option value="10">Obi-Wan Kenobi</option>
+                        <option value="53">Kit Fisto</option>
+                        <option value="32">Qui-Gon Jinn</option>
+                        <option value="36">Jar Jar Binks</option>
+                        <option value="46">Ayala Secura</option>
+                        <option value="51">Mace Windu</option>
+                    </select>
+                    <select name="character2" id="character-2" class="select-character">
+                        <option value="" selected>Select</option>
+                        <option value="44">Darth Maul</option>
+                        <option value="21">Palpatine</option>
+                        <option value="67">Dooku</option>
+                        <option value="69">Jango Fett</option>
+                        <option value="79">Grievous</option>
+                        <option value="70">Zam Wesell</option>
+                    </select>
+                </div>
                 <button class="compare-characters-btn">Compare</button>
-                <select name="character2" id="character-2" class="select-character">
-                    <option value="select" default selected hidden>Select</option>
-                    <option value="44">Darth Maul</option>
-                    <option value="21">Palpatine</option>
-                    <option value="67">Dooku</option>
-                    <option value="69">Jango Fett</option>
-                    <option value="79">Grievous</option>
-                    <option value="70">Zam Wesell</option>
-                </select>
             </div>
+            
 
-            <article class="article main">
+            <article class="article-main">
                 
                 <div class="char-container">
                     <div class="char-name-container">
                         <h2 class="char-name" data-element-1="name">Name</h2>
+                        <img src="" alt="" class="img" >
                     </div>
                     <div class="char-data-container">
                         <span class="char-data" data-element-1="gender">gender</span>
@@ -58,6 +62,7 @@
                 <div class="char-container">
                     <div class="char-name-container">
                         <h2 class="char-name" data-element-2="name">Name 2</h2>
+                        <img src="" alt="" class="char-img">
                     </div>
                     <div class="char-data-container">
                         <span class="char-data" data-element-2="gender">gender</span>

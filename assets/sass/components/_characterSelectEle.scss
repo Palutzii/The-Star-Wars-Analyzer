@@ -1,0 +1,38 @@
+.character-select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+   
+    h2{
+        font-size: $baseSize;
+        font-size: $mdSize;
+        margin-bottom: 1rem;
+
+        @include fontSemiBold();
+    }
+}
+
+.character-select-and-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    button {
+        width: fit-content;
+        background-color: #222;
+        border: none;
+        padding: 10px 16px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+    }
+}
+
+.character-select {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
