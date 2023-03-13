@@ -9,14 +9,17 @@
     <title>The Star Wars Character Analyzer</title>
 </head>
 <body>
-    <h1 class="title">Star Wars Character Analyzer</h1>
+    <header class="header content-wrapper">
+        <h1 class="title">Star Wars Character Analyzer</h1>
+    </header>
+    
     <main class="main">
         
-        <div class="character-select-container">
+        <div class="character-select-container content-wrapper">
             <h2>Choose your characters</h2>
             <div class="character-select">
                 <select name="character1" id="character-1" class="select-character">
-                    <option value="select" default hidden>Select</option>
+                    <option value="select" default selected hidden>Select</option>
                     <option value="10">Obi-Wan Kenobi</option>
                     <option value="53">Kit Fisto</option>
                     <option value="32">Qui-Gon Jinn</option>
@@ -26,15 +29,47 @@
                 </select>
                 <button class="compare-characters-btn">Compare</button>
                 <select name="character2" id="character-2" class="select-character">
-                    <option value="select" default hidden>Select</option>
+                    <option value="select" default selected hidden>Select</option>
                     <option value="44">Darth Maul</option>
-                    <option value="21">Darth Sidious</option>
+                    <option value="21">Palpatine</option>
                     <option value="67">Dooku</option>
                     <option value="69">Jango Fett</option>
                     <option value="79">Grievous</option>
                     <option value="70">Zam Wesell</option>
                 </select>
             </div>
+
+            <article class="article main">
+                
+                <div class="char-container">
+                    <div class="char-name-container">
+                        <h2 class="char-name" data-element-1="name">Name</h2>
+                    </div>
+                    <div class="char-data-container">
+                        <span class="char-data" data-element-1="gender">gender</span>
+                        <span class="char-data" data-element-1="height">height</span>
+                        <span class="char-data" data-element-1="mass">mass</span>
+                        <span class="char-data" data-element-1="hairColor">hair color</span>
+                        <span class="char-data" data-element-1="skinColor">skin color</span>
+                        <span class="char-data" data-element-1="eyeColor">eye color</span>
+                        <span class="char-data" data-element-1="movies">movies</span>
+                    </div>
+                </div>
+                <div class="char-container">
+                    <div class="char-name-container">
+                        <h2 class="char-name" data-element-2="name">Name 2</h2>
+                    </div>
+                    <div class="char-data-container">
+                        <span class="char-data" data-element-2="gender">gender</span>
+                        <span class="char-data" data-element-2="height">height</span>
+                        <span class="char-data" data-element-2="mass">mass</span>
+                        <span class="char-data" data-element-2="hairColor">hair color</span>
+                        <span class="char-data" data-element-2="skinColor">skin color</span>
+                        <span class="char-data" data-element-2="eyeColor">eye color</span>
+                        <span class="char-data" data-element-2="movies">movies</span>
+                    </div>
+                </div>
+            </article>
             
         </div>
     </main>
