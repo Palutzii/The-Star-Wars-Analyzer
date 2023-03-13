@@ -2,34 +2,25 @@ import { Character } from "./components/character.js";
 
 let main = document.querySelector(".main");
 let compareBtn = document.querySelector(".compare-characters-btn");
+let articleMain = document.querySelector(".article-main");
 // creating the characters
 let character1 = new Character();
 let character2 = new Character();
 //Getting images for characters, could be made better
-let imageObi = new Image();
-let imageKit = new Image();
-let imageQui = new Image();
-let imageBinks = new Image();
-let imageAyala = new Image();
-let imageMace = new Image();
-let imageMaul = new Image();
-let imageSidious = new Image();
-let imageDooku = new Image();
-let imageFett = new Image();
-let imageRobot = new Image();
-let imageWesell = new Image();
-imageObi.src = "../../assets/img/obi-wan-kenobi.png";
-imageKit.src = "../../assets/img/kit-fisto.png";
-imageQui = "../../assets/img/quin-gon-jinn.png";
-imageBinks.src = "../../assets/img/jar-jar-binks.png";
-imageAyala.src = "../../assets/img/ayala-secura.png";
-imageMace.src = "../../assets/img/mace-windu.png";
-imageMaul.src = "../../assets/img/darth-maul.png";
-imageSidious.src = "../../assets/img/darth-sidious.png";
-imageDooku.src = "../../assets/img/count-dooku.png";
-imageFett.src = "../../assets/img/jango-fett.png";
-imageRobot.src = "../../assets/img/grievous.png";
-imageWesell.src = "../../assets/img/zam-wesell.png";
+let images = {
+    "10": "../../assets/img/obi-wan-kenobi.png",
+    "53": "../../assets/img/kit-fisto.png",
+    "32": "../../assets/img/quin-gon-jinn.png",
+    "36": "../../assets/img/jar-jar-binks.png",
+    "46": "../../assets/img/ayala-secura.png",
+    "51": "../../assets/img/mace-windu.png",
+    "44": "../../assets/img/darth-maul.png",
+    "21": "../../assets/img/darth-sidious.png",
+    "67": "../../assets/img/count-dooku.png",
+    "69": "../../assets/img/jango-fett.png",
+    "79": "../../assets/img/grievous.png",
+    "70": "../../assets/img/zam-wesell.png"
+};
 
 async function getData(url){
     let data = await fetch(url);
@@ -55,7 +46,8 @@ async function createCharacters(char1,char2){
     char1.skinColor = data1.skin_color;
     char1.eyeColor = data1.eye_color;
     char1.movies = data1.films;
-    console.log(char1.name);
+    char1.image = images[value1];
+    console.log(char1.image);
 
     
     char2.name = data2.name;
@@ -66,6 +58,8 @@ async function createCharacters(char1,char2){
     char2.skinColor = data2.skin_color;
     char2.eyeColor = data2.eye_color;
     char2.movies = data2.films;
+    char2.image = images[value2];
+    console.log(char2.image);
 }
 
 async function renderCharacter(char1, char2){
@@ -85,6 +79,8 @@ async function renderCharacter(char1, char2){
     let eyeColor2 = document.querySelector('[data-element-2="eyeColor"]');
     let movies1 = document.querySelector('[data-element-1="movies"]');
     let movies2 = document.querySelector('[data-element-2="movies"]');
+    let image1 = document.querySelector('[data-element-1="img"]');
+    let image2 = document.querySelector('[data-element-2="img"]');
 
     name1.textContent = char1.name;
     gender1.textContent = `Gender: ${char1.gender}` ;
@@ -94,6 +90,9 @@ async function renderCharacter(char1, char2){
     skinColor1.textContent = `Skin Color: ${char1.skinColor}`;
     eyeColor1.textContent = `Eye Color: ${char1.eyeColor}`;
     movies1.textContent = `Movies: ${char1.movies.length}`;
+    image1.setAttribute("src", `${char1.image}`)
+    console.log(gender1);
+    
 
     name2.textContent = char2.name;
     gender2.textContent = `Gender: ${char2.gender}` ;
@@ -103,17 +102,86 @@ async function renderCharacter(char1, char2){
     skinColor2.textContent = `Skin Color: ${char2.skinColor}`;
     eyeColor2.textContent = `Eye Color: ${char2.eyeColor}`;
     movies2.textContent = `Movies: ${char2.movies.length}`;
+    image2.setAttribute("src", `${char2.image}`)
+    console.log(gender2);
 
+    if(gender1.textContent == gender2.textContent){
+        gender1.style.color = "green";
+        gender2.style.color = "green";
+    }else{
+        gender1.style.color = "#FFE81F"
+        gender2.style.color = "#FFE81F"
+    };
 
+    if(hairColor1.textContent == hairColor2.textContent){
+        hairColor1.style.color = "green";
+        hairColor2.style.color = "green";
+    }else{
+        hairColor1.style.color = "#FFE81F"
+        hairColor2.style.color = "#FFE81F"
+    };
+
+    if(skinColor1.textContent == skinColor2.textContent){
+        skinColor1.style.color = "green";
+        skinColor2.style.color = "green";
+    }else{
+        skinColor1.style.color = "#FFE81F"
+        skinColor2.style.color = "#FFE81F"
+    };
+
+    if(eyeColor1.textContent == eyeColor2.textContent){
+        eyeColor1.style.color = "green";
+        eyeColor2.style.color = "green";
+    }else{
+        eyeColor1.style.color = "#FFE81F"
+        eyeColor2.style.color = "#FFE81F"
+    };
+
+    if(parseFloat(char1.height) > parseFloat(char2.height)){
+        height1.style.color = "green";
+        height2.style.color = "#FFE81F";
+    }
+    else if(parseFloat(char1.height) < parseFloat(char2.height)){
+        height2.style.color = "green";
+        height1.style.color = "#FFE81F";
+    } else if(parseFloat(char1.height) == parseFloat(char2.height)){
+        height1.style.color = "green";
+        height2.style.color = "green";
+    };
+
+    if(parseFloat(char1.mass) > parseFloat(char2.mass)){
+        mass1.style.color = "green";
+        mass2.style.color = "#FFE81F";
+    }
+    else if(parseFloat(char1.mass) < parseFloat(char2.mass)){
+        mass2.style.color = "green";
+        mass1.style.color = "#FFE81F";
+    } else if(parseFloat(char1.mass) == parseFloat(char2.mass)){
+        mass1.style.color = "green";
+        mass2.style.color = "green";
+    };
+
+    if(char1.movies.length > char2.movies.length){
+        movies1.style.color = "green";
+        movies2.style.color = "#FFE81F";
+    }
+    else if(char1.movies.length < char2.movies.length){
+        movies2.style.color = "green";
+        movies1.style.color = "#FFE81F";
+    } else {
+        movies1.style.color = "green";
+        movies2.style.color = "green";
+    };
 }
 
 let loadCharacters = async () => {
     try {
         
         compareBtn.addEventListener("click", async () => {
-            let articleMain = document.querySelector(".article-main");
+
             await createCharacters(character1,character2);
             await renderCharacter(character1,character2);
+            articleMain.classList.remove("hidden");
             
         })
 
