@@ -54,7 +54,7 @@ async function createCharacters(char1,char2){
     char1.hairColor = data1.hair_color;
     char1.skinColor = data1.skin_color;
     char1.eyeColor = data1.eye_color;
-    char1.movies = data1.films.title;
+    char1.movies = data1.films;
     console.log(char1.name);
 
     
@@ -65,7 +65,7 @@ async function createCharacters(char1,char2){
     char2.hairColor = data2.hair_color;
     char2.skinColor = data2.skin_color;
     char2.eyeColor = data2.eye_color;
-    char2.movies = data2.films.title;
+    char2.movies = data2.films;
 }
 
 async function renderCharacter(char1, char2){
@@ -93,7 +93,7 @@ async function renderCharacter(char1, char2){
     hairColor1.textContent = `Hair Color: ${char1.hairColor}`;
     skinColor1.textContent = `Skin Color: ${char1.skinColor}`;
     eyeColor1.textContent = `Eye Color: ${char1.eyeColor}`;
-    movies1.textContent = `Movies: ${char1.movies}`;
+    movies1.textContent = `Movies: ${char1.movies.length}`;
 
     name2.textContent = char2.name;
     gender2.textContent = `Gender: ${char2.gender}` ;
@@ -102,18 +102,16 @@ async function renderCharacter(char1, char2){
     hairColor2.textContent = `Hair Color: ${char2.hairColor}`;
     skinColor2.textContent = `Skin Color: ${char2.skinColor}`;
     eyeColor2.textContent = `Eye Color: ${char2.eyeColor}`;
-    movies2.textContent = `Movies: ${char2.movies}`;
+    movies2.textContent = `Movies: ${char2.movies.length}`;
 
 
 }
 
 let loadCharacters = async () => {
     try {
-        let data = await getData("https://swapi.dev/api/people/");
         
         compareBtn.addEventListener("click", async () => {
             let articleMain = document.querySelector(".article-main");
-
             await createCharacters(character1,character2);
             await renderCharacter(character1,character2);
             
