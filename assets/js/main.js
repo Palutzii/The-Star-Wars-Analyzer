@@ -1,5 +1,6 @@
 import { Character } from "./components/character.js";
 
+let main = document.querySelector(".main");
 let compareBtn = document.querySelector(".compare-characters-btn");
 // creating the characters
 let character1 = new Character();
@@ -36,7 +37,7 @@ async function getData(url){
     return json;
 }
 
-async function createCharacters(){
+async function createCharacters(char1,char2){
     // get values from select
     let value1 = document.querySelector("#character-1").value;
     let value2 = document.querySelector("#character-2").value;
@@ -46,27 +47,63 @@ async function createCharacters(){
     let data2 = await getData("https://swapi.dev/api/people/" + value2);
 
     // put character data to character attributes
-    character1.name = data1.name;
-    character1.gender = data1.gender;
-    character1.height = data1.height;
-    character1.mass = data1.mass;
-    character1.hairColor = data1.hairColor;
-    character1.skinColor = data1.skinColor;
-    character1.eyeColor = data1.eyeColor;
-    character1.movies = data1.movies;
+    char1.name = data1.name;
+    char1.gender = data1.gender;
+    char1.height = data1.height;
+    char1.mass = data1.mass;
+    char1.hairColor = data1.hair_color;
+    char1.skinColor = data1.skin_color;
+    char1.eyeColor = data1.eye_color;
+    char1.movies = data1.films.title;
+    console.log(char1.name);
 
     
-    character2.name = data2.name;
-    character2.gender = data2.gender;
-    character2.height = data2.height;
-    character2.mass = data2.mass;
-    character2.hairColor = data2.hairColor;
-    character2.skinColor = data2.skinColor;
-    character2.eyeColor = data2.eyeColor;
-    character2.movies = data2.movies;
+    char2.name = data2.name;
+    char2.gender = data2.gender;
+    char2.height = data2.height;
+    char2.mass = data2.mass;
+    char2.hairColor = data2.hair_color;
+    char2.skinColor = data2.skin_color;
+    char2.eyeColor = data2.eye_color;
+    char2.movies = data2.films.title;
 }
 
-function renderCharacter(char1, char2){
+async function renderCharacter(char1, char2){
+    let name1 = document.querySelector('[data-element-1="name"]');
+    let name2 = document.querySelector('[data-element-2="name"]');
+    let gender1 = document.querySelector('[data-element-1="gender"]');
+    let gender2 = document.querySelector('[data-element-2="gender"]');
+    let height1 = document.querySelector('[data-element-1="height"]');
+    let height2 = document.querySelector('[data-element-2="height"]');
+    let mass1 = document.querySelector('[data-element-1="mass"]');
+    let mass2 = document.querySelector('[data-element-2="mass"]');
+    let hairColor1 = document.querySelector('[data-element-1="hairColor"]');
+    let hairColor2 = document.querySelector('[data-element-2="hairColor"]');
+    let skinColor1 = document.querySelector('[data-element-1="skinColor"]');
+    let skinColor2 = document.querySelector('[data-element-2="skinColor"]');
+    let eyeColor1 = document.querySelector('[data-element-1="eyeColor"]');
+    let eyeColor2 = document.querySelector('[data-element-2="eyeColor"]');
+    let movies1 = document.querySelector('[data-element-1="movies"]');
+    let movies2 = document.querySelector('[data-element-2="movies"]');
+
+    name1.textContent = char1.name;
+    gender1.textContent = `Gender: ${char1.gender}` ;
+    height1.textContent = `Height: ${char1.height}`;
+    mass1.textContent = `Mass: ${char1.mass}`;
+    hairColor1.textContent = `Hair Color: ${char1.hairColor}`;
+    skinColor1.textContent = `Skin Color: ${char1.skinColor}`;
+    eyeColor1.textContent = `Eye Color: ${char1.eyeColor}`;
+    movies1.textContent = `Movies: ${char1.movies}`;
+
+    name2.textContent = char2.name;
+    gender2.textContent = `Gender: ${char2.gender}` ;
+    height2.textContent = `Height: ${char2.height}`;
+    mass2.textContent = `Mass: ${char2.mass}`;
+    hairColor2.textContent = `Hair Color: ${char2.hairColor}`;
+    skinColor2.textContent = `Skin Color: ${char2.skinColor}`;
+    eyeColor2.textContent = `Eye Color: ${char2.eyeColor}`;
+    movies2.textContent = `Movies: ${char2.movies}`;
+
 
 }
 
@@ -75,8 +112,11 @@ let loadCharacters = async () => {
         let data = await getData("https://swapi.dev/api/people/");
         
         compareBtn.addEventListener("click", async () => {
-            createCharacters();
-            renderCharacter(character1,character2);
+            let articleMain = document.querySelector(".article-main");
+
+            await createCharacters(character1,character2);
+            await renderCharacter(character1,character2);
+            
         })
 
 
