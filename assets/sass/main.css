@@ -115,6 +115,10 @@ body {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 8px;
+  cursor: pointer;
+}
+.character-select-and-btn button:hover {
+  background-color: hwb(0 50% 50%/0.2);
 }
 
 .character-select {
@@ -149,6 +153,10 @@ body {
   margin-top: 2rem;
   margin-bottom: 2rem;
   gap: 2rem;
+}
+
+.hidden {
+  display: none;
 }
 
 .char-name-container {
