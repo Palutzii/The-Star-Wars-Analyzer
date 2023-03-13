@@ -89,4 +89,19 @@ body {
   padding: 0 1rem;
   margin: auto;
   position: relative;
+}
+
+.title {
+  font-size: clamp(1.09rem, 0.49vw + 1rem, 1.58rem);
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  font-family: "Orbitron", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+}
+@media (min-width: 740px) {
+  .title {
+    font-size: clamp(1.71rem, 1.1vw + 1.49rem, 2.81rem);
+  }
 }/*# sourceMappingURL=main.css.map */

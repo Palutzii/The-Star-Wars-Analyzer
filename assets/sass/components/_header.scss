@@ -1,0 +1,12 @@
+.title{
+    font-size: $mdSize;
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    @include fontUltraBold();
+
+    @include devices(tablet){
+        font-size: $xlSize;
+    }
+}
