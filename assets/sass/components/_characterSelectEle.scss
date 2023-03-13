@@ -65,3 +65,21 @@
         
     }
 }
+
+#loading {
+    width: 2rem;
+    height: 2rem;
+    border: 5px solid#FFE81F;
+    border-top: 6px solid #9c41f2;
+    border-radius: 100%;
+    margin: auto;
+    visibility: hidden;
+    animation: spin 1s infinite linear;
+
+    &.display {
+        visibility: visible;
+    }
+}
+
+@keyframes
+
