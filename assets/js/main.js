@@ -88,8 +88,8 @@ async function renderCharacter(char1, char2){
 
     name1.textContent = char1.name;
     gender1.textContent = `Gender: ${char1.gender}` ;
-    height1.textContent = `Height: ${char1.height}`;
-    mass1.textContent = `Mass: ${char1.mass}`;
+    height1.textContent = `Height: ${char1.height}cm`;
+    mass1.textContent = `Mass: ${char1.mass}kg`;
     hairColor1.textContent = `Hair Color: ${char1.hairColor}`;
     skinColor1.textContent = `Skin Color: ${char1.skinColor}`;
     eyeColor1.textContent = `Eye Color: ${char1.eyeColor}`;
@@ -97,8 +97,8 @@ async function renderCharacter(char1, char2){
 
     name2.textContent = char2.name;
     gender2.textContent = `Gender: ${char2.gender}` ;
-    height2.textContent = `Height: ${char2.height}`;
-    mass2.textContent = `Mass: ${char2.mass}`;
+    height2.textContent = `Height: ${char2.height}cm`;
+    mass2.textContent = `Mass: ${char2.mass}kg`;
     hairColor2.textContent = `Hair Color: ${char2.hairColor}`;
     skinColor2.textContent = `Skin Color: ${char2.skinColor}`;
     eyeColor2.textContent = `Eye Color: ${char2.eyeColor}`;
