@@ -1,6 +1,6 @@
 export class Character {
-    constructor(name) {
-        this.name = name;
+    constructor() {
+        this.name = null;
         this.gender = null;
         this.height = null;
         this.mass = null;
