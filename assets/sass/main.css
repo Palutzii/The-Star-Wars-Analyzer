@@ -56,23 +56,28 @@
 }
 
 select,
-button,
-option {
+button {
   background-color: #222;
   border: none;
 }
 
-select,
-option {
-  background-color: rgba(34, 34, 34, 0.3);
+select {
+  background-color: hwb(0 50% 87%/0.2);
   border-radius: 8px;
   padding: 10px;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
 }
+select option {
+  background-color: hwb(0 13% 87%/1);
+  border-radius: 8px;
+  padding: 10px;
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+}
 
 body {
-  background-image: url("../../../assets/img/background-img.jpg");
+  background-image: url("../../../assets/img/background-img-2.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 100vh;
