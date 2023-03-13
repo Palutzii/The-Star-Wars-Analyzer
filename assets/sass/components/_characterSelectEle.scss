@@ -5,11 +5,10 @@
     position: relative;
    
     h2{
-        font-size: $baseSize;
-        font-size: $mdSize;
+        font-size: $lgSize;
         margin-bottom: 1rem;
 
-        @include fontSemiBold();
+        @include fontBold();
     }
 }
 
@@ -35,4 +34,28 @@
     justify-content: center;
     gap: 1rem;
     width: 100%;
+
+    select {
+        border: none;
+        background-color: hwb(0 50% 87% / 0.2);
+        border-radius: 8px;
+        padding: 10px;
+        backdrop-filter: blur(10px);
+
+        
+        option {
+            background-color: hwb(0 13% 87% / 1);
+            border-radius: 8px;
+            padding: 10px;
+            backdrop-filter: blur(1px);
+    
+            
+        }
+
+        option:hover {
+            background-color: red;
+            color: #FFE81F;
+        }
+        
+    }
 }
