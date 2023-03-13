@@ -55,30 +55,9 @@
   font-weight: 400;
 }
 
-select {
-  background-color: #222;
-  border: none;
-}
-
-select {
-  background-color: hwb(0 50% 87%/0.2);
-  border-radius: 8px;
-  padding: 10px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-}
-select option {
-  background-color: hwb(0 13% 87%/1);
-  border-radius: 8px;
-  padding: 10px;
-  -webkit-backdrop-filter: blur(1px);
-          backdrop-filter: blur(1px);
-}
-
 body {
   background-image: url("../../../assets/img/background-img-2.jpg");
   background-size: 100% 100%;
-  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
 }
@@ -112,12 +91,11 @@ body {
   position: relative;
 }
 .character-select-container h2 {
-  font-size: clamp(0.88rem, 0.31vw + 0.81rem, 1.19rem);
-  font-size: clamp(1.09rem, 0.49vw + 1rem, 1.58rem);
+  font-size: clamp(1.37rem, 0.74vw + 1.22rem, 2.11rem);
   margin-bottom: 1rem;
   font-family: "Orbitron", Arial, Helvetica, sans-serif;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .character-select-and-btn {
@@ -143,11 +121,32 @@ body {
   gap: 1rem;
   width: 100%;
 }
+.character-select select {
+  border: none;
+  background-color: hwb(0 50% 87%/0.2);
+  border-radius: 8px;
+  padding: 10px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+.character-select select option {
+  background-color: hwb(0 13% 87%/1);
+  border-radius: 8px;
+  padding: 10px;
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+}
+.character-select select option:hover {
+  background-color: red;
+  color: #FFE81F;
+}
 
 .article-main {
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
+  margin-bottom: 2rem;
+  gap: 2rem;
 }
 
 .char-name-container {
@@ -157,4 +156,24 @@ body {
 }
 .char-name-container h2 {
   text-align: center;
+}
+
+.char-data-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  border: 1px solid #FFE81F;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: clamp(0.7rem, 0.19vw + 0.66rem, 0.89rem);
 }/*# sourceMappingURL=main.css.map */
