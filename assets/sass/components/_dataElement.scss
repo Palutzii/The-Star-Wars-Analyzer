@@ -28,4 +28,10 @@
     border: 1px solid  #FFE81F;
     border-radius: 8px;
     padding: 8px 16px;
+    background-color: hwb(0 50% 87% / 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.is-highest{
+    color: green;
 }

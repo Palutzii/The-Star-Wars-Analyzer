@@ -107,7 +107,9 @@ body {
 .character-select-and-btn button {
   width: -moz-fit-content;
   width: fit-content;
-  background-color: #222;
+  background-color: hwb(0 50% 87%/0.2);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   border: none;
   padding: 10px 16px;
   margin-top: 1rem;
@@ -167,6 +169,13 @@ body {
   border: 1px solid #FFE81F;
   border-radius: 8px;
   padding: 8px 16px;
+  background-color: hwb(0 50% 87%/0.2);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+.is-highest {
+  color: green;
 }
 
 .footer {

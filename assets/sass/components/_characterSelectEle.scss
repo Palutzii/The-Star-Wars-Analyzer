@@ -20,7 +20,8 @@
 
     button {
         width: fit-content;
-        background-color: #222;
+        background-color: hwb(0 50% 87% / 0.2);
+        backdrop-filter: blur(10px);
         border: none;
         padding: 10px 16px;
         margin-top: 1rem;
