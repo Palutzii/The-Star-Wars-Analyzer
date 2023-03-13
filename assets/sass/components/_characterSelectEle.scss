@@ -27,6 +27,11 @@
         margin-top: 1rem;
         margin-bottom: 1rem;
         border-radius: 8px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: hwb(0 50% 50% / 0.2);
+        }
     }
 }
 
