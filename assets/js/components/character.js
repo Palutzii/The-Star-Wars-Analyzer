@@ -10,4 +10,20 @@ export class Character {
         this.movies = null;
         this.image = null;
     }
+
+    getAppearanceDate(){
+
+    };
+
+    getMoviesFeaturedInWithOtherChar(){
+
+    };
+
+    getHomeplanet(){
+
+    };
+
+    getExpensiveVehicle(){
+
+    };
 }
