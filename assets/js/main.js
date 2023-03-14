@@ -67,6 +67,7 @@ async function createCharacters(char1,char2){
     char1.eyeColor = data1.eye_color;
     char1.movies = data1.films;
     char1.image = images[value1];
+    console.log(char1.movies);
 
     
     char2.name = data2.name;
