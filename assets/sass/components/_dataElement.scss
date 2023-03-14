@@ -44,6 +44,25 @@
     backdrop-filter: blur(10px);
 }
 
-.is-highest{
-    color: green;
+.char-extra-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+
+    button{
+        width: fit-content;
+        background-color: hwb(0 50% 87% / 0.2);
+        backdrop-filter: blur(10px);
+        border: none;
+        padding: 10px 16px;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: hwb(0 50% 50% / 0.2);
+        }
+    }
+
 }
