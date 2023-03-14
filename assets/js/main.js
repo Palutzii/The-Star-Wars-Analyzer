@@ -4,13 +4,15 @@ let main = document.querySelector(".main");
 let compareBtn = document.querySelector(".compare-characters-btn");
 let articleMain = document.querySelector(".article-main");
 const loader = document.querySelector("#loading");
-let stars = document.querySelector(".stars");
-let twinkles = document.querySelector(".twinkling");
+const stars = document.querySelector(".stars");
+const twinkles = document.querySelector(".twinkling");
 let timerId = null;
 
 // creating the characters
 let character1 = new Character();
 let character2 = new Character();
+
+
 
 //Getting images for characters, could be made better
 let images = {
@@ -71,7 +73,6 @@ async function createCharacters(char1,char2){
     char1.eyeColor = data1.eye_color;
     char1.movies = data1.films;
     char1.image = images[value1];
-    console.log(char1.image);
 
     
     char2.name = data2.name;
@@ -83,7 +84,6 @@ async function createCharacters(char1,char2){
     char2.eyeColor = data2.eye_color;
     char2.movies = data2.films;
     char2.image = images[value2];
-    console.log(char2.image);
 }
 
 async function renderCharacter(char1, char2){
@@ -115,7 +115,6 @@ async function renderCharacter(char1, char2){
     eyeColor1.textContent = `Eye Color: ${char1.eyeColor}`;
     movies1.textContent = `Movies: ${char1.movies.length}`;
     image1.setAttribute("src", `${char1.image}`)
-    console.log(gender1);
     
 
     name2.textContent = char2.name;
@@ -127,7 +126,6 @@ async function renderCharacter(char1, char2){
     eyeColor2.textContent = `Eye Color: ${char2.eyeColor}`;
     movies2.textContent = `Movies: ${char2.movies.length}`;
     image2.setAttribute("src", `${char2.image}`)
-    console.log(gender2);
 
     if(gender1.textContent == gender2.textContent){
         gender1.style.color = "white";
@@ -197,8 +195,21 @@ async function renderCharacter(char1, char2){
         movies2.style.color = "white";
     };
 
-    stars.style.height = "1600px";
-    twinkles.style.height = "1600px"
+    if(char1.name === "Kit Fisto" && char2.name === "Zam Wesell"){
+        stars.style.height = "2360px";
+        twinkles.style.height = "2360px";
+    }
+    else if (char1.name ==="Kit Fisto" &&char2.name ==="Dooku"){
+        stars.style.height = "2200px";
+        twinkles.style.height = "2200px";       
+    }
+    else if (char1.name === "Kit Fisto" && char2.name === "Palpatine"){
+        stars.style.height = "2150px";
+        twinkles.style.height = "2150px";
+    }else {
+        stars.style.height = "2000px";
+        twinkles.style.height = "2000px";
+    }
 }
 
 let loadCharacters = async () => {
@@ -210,12 +221,18 @@ let loadCharacters = async () => {
             await renderCharacter(character1,character2);
             articleMain.classList.remove("hidden");
             
+            
+        
+            stars.style.height = document.documentElement.scrollHeight + "px";
+            twinkles.style.height = document.documentElement.scrollHeight+ "px";
         })
-
-
     } catch (error) {
         console.log(error);
     }
 }
 
 loadCharacters();
+
+window.addEventListener("resize", () =>{
+
+})

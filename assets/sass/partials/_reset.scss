@@ -6,6 +6,10 @@
     @include fontRegular("Orbitron");
 }
 
+body {
+    height: 100%;
+}
+
 .content-wrapper {
     max-width: 67.5rem; //1080px
     padding: 0 1rem;
