@@ -4,6 +4,7 @@ const body = document.body;
 let compareBtn = document.querySelector(".compare-characters-btn");
 let articleMain = document.querySelector(".article-main");
 const loader = document.querySelector("#loading");
+const loadMessage = document.querySelector("#long-wait");
 let timerId = null;
 
 // creating the characters
@@ -29,11 +30,15 @@ let images = {
 function displayLoading(){
     loader.classList.add("display");
     console.log("Loading in resources");
+    setTimeout(function () {
+        loadMessage.style.display = "block";
+    }, 5000);
 }
 
 function hideLoading(){
     loader.classList.remove("display");
     console.log("Loading done");
+    loadMessage.style.display = "none";
 }
 
 async function getData(url){

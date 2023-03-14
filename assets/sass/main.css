@@ -202,6 +202,11 @@ body {
   display: block;
 }
 
+#long-wait {
+  font-size: clamp(0.7rem, 0.19vw + 0.66rem, 0.89rem);
+  margin-top: 0.5rem;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
