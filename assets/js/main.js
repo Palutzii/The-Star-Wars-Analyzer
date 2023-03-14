@@ -1,18 +1,14 @@
 import { Character } from "./components/character.js";
 
-let main = document.querySelector(".main");
+const body = document.body;
 let compareBtn = document.querySelector(".compare-characters-btn");
 let articleMain = document.querySelector(".article-main");
 const loader = document.querySelector("#loading");
-const stars = document.querySelector(".stars");
-const twinkles = document.querySelector(".twinkling");
 let timerId = null;
 
 // creating the characters
 let character1 = new Character();
 let character2 = new Character();
-
-
 
 //Getting images for characters, could be made better
 let images = {
@@ -32,24 +28,17 @@ let images = {
 
 function displayLoading(){
     loader.classList.add("display");
-    timerId = setTimeout(() => {
-        loader.classList.remove("display");
-    }, 5000);
-
-    console.log(timerId);
-    return timerId
+    console.log("Loading in resources");
 }
 
 function hideLoading(){
     loader.classList.remove("display");
-    clearTimeout(timerId);
-    console.log("TimeriD in hide: " + timerId);
+    console.log("Loading done");
 }
 
 async function getData(url){
     let data = await fetch(url);
     let json = await data.json();
-    hideLoading()
     return json;
 }
 
@@ -195,21 +184,10 @@ async function renderCharacter(char1, char2){
         movies2.style.color = "white";
     };
 
-    if(char1.name === "Kit Fisto" && char2.name === "Zam Wesell"){
-        stars.style.height = "2360px";
-        twinkles.style.height = "2360px";
-    }
-    else if (char1.name ==="Kit Fisto" &&char2.name ==="Dooku"){
-        stars.style.height = "2200px";
-        twinkles.style.height = "2200px";       
-    }
-    else if (char1.name === "Kit Fisto" && char2.name === "Palpatine"){
-        stars.style.height = "2150px";
-        twinkles.style.height = "2150px";
-    }else {
-        stars.style.height = "2000px";
-        twinkles.style.height = "2000px";
-    }
+    body.style.height = "100%";
+    
+    hideLoading()
+
 }
 
 let loadCharacters = async () => {
@@ -220,11 +198,6 @@ let loadCharacters = async () => {
             await createCharacters(character1,character2);
             await renderCharacter(character1,character2);
             articleMain.classList.remove("hidden");
-            
-            
-        
-            stars.style.height = document.documentElement.scrollHeight + "px";
-            twinkles.style.height = document.documentElement.scrollHeight+ "px";
         })
     } catch (error) {
         console.log(error);
@@ -232,7 +205,3 @@ let loadCharacters = async () => {
 }
 
 loadCharacters();
-
-window.addEventListener("resize", () =>{
-
-})

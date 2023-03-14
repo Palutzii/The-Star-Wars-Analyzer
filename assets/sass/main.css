@@ -74,6 +74,11 @@ body {
     background-position: -10000px 5000px;
   }
 }
+body {
+  height: 100vh;
+  position: relative;
+}
+
 .stars, .twinkling {
   position: absolute;
   top: 0;
@@ -220,8 +225,8 @@ body {
 .char-container {
   background-color: hwb(0 50% 87%/0.2);
   border: 1px solid #FFE81F;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
   border-radius: 8px;
 }
 
@@ -248,8 +253,8 @@ body {
   border-radius: 8px;
   padding: 8px 16px;
   background-color: hwb(0 50% 87%/0.2);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
 }
 
 .char-extra-info-container {
@@ -280,7 +285,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   margin-top: 3rem;
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   font-size: clamp(0.7rem, 0.19vw + 0.66rem, 0.89rem);
   z-index: 2;
   position: relative;

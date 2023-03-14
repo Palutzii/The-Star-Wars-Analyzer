@@ -3,6 +3,11 @@
     to {background-position:-10000px 5000px;}
 }
 
+body{
+  height: 100vh;
+  position: relative;
+}
+
 .stars, .twinkling{
     position:absolute;
     top:0;
