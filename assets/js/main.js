@@ -3,9 +3,15 @@ import { Character } from "./components/character.js";
 let main = document.querySelector(".main");
 let compareBtn = document.querySelector(".compare-characters-btn");
 let articleMain = document.querySelector(".article-main");
+const loader = document.querySelector("#loading");
+let stars = document.querySelector(".stars");
+let twinkles = document.querySelector(".twinkling");
+let timerId = null;
+
 // creating the characters
 let character1 = new Character();
 let character2 = new Character();
+
 //Getting images for characters, could be made better
 let images = {
     "10": "../../assets/img/obi-wan-kenobi.png",
@@ -22,13 +28,31 @@ let images = {
     "70": "../../assets/img/zam-wesell.png"
 };
 
+function displayLoading(){
+    loader.classList.add("display");
+    timerId = setTimeout(() => {
+        loader.classList.remove("display");
+    }, 5000);
+
+    console.log(timerId);
+    return timerId
+}
+
+function hideLoading(){
+    loader.classList.remove("display");
+    clearTimeout(timerId);
+    console.log("TimeriD in hide: " + timerId);
+}
+
 async function getData(url){
     let data = await fetch(url);
     let json = await data.json();
+    hideLoading()
     return json;
 }
 
 async function createCharacters(char1,char2){
+    displayLoading();
     // get values from select
     let value1 = document.querySelector("#character-1").value;
     let value2 = document.querySelector("#character-2").value;
@@ -106,72 +130,75 @@ async function renderCharacter(char1, char2){
     console.log(gender2);
 
     if(gender1.textContent == gender2.textContent){
-        gender1.style.color = "green";
-        gender2.style.color = "green";
+        gender1.style.color = "white";
+        gender2.style.color = "white";
     }else{
         gender1.style.color = "#FFE81F"
         gender2.style.color = "#FFE81F"
     };
 
     if(hairColor1.textContent == hairColor2.textContent){
-        hairColor1.style.color = "green";
-        hairColor2.style.color = "green";
+        hairColor1.style.color = "white";
+        hairColor2.style.color = "white";
     }else{
         hairColor1.style.color = "#FFE81F"
         hairColor2.style.color = "#FFE81F"
     };
 
     if(skinColor1.textContent == skinColor2.textContent){
-        skinColor1.style.color = "green";
-        skinColor2.style.color = "green";
+        skinColor1.style.color = "white";
+        skinColor2.style.color = "white";
     }else{
         skinColor1.style.color = "#FFE81F"
         skinColor2.style.color = "#FFE81F"
     };
 
     if(eyeColor1.textContent == eyeColor2.textContent){
-        eyeColor1.style.color = "green";
-        eyeColor2.style.color = "green";
+        eyeColor1.style.color = "white";
+        eyeColor2.style.color = "white";
     }else{
         eyeColor1.style.color = "#FFE81F"
         eyeColor2.style.color = "#FFE81F"
     };
 
     if(parseFloat(char1.height) > parseFloat(char2.height)){
-        height1.style.color = "green";
+        height1.style.color = "white";
         height2.style.color = "#FFE81F";
     }
     else if(parseFloat(char1.height) < parseFloat(char2.height)){
-        height2.style.color = "green";
+        height2.style.color = "white";
         height1.style.color = "#FFE81F";
     } else if(parseFloat(char1.height) == parseFloat(char2.height)){
-        height1.style.color = "green";
-        height2.style.color = "green";
+        height1.style.color = "white";
+        height2.style.color = "white";
     };
 
     if(parseFloat(char1.mass) > parseFloat(char2.mass)){
-        mass1.style.color = "green";
+        mass1.style.color = "white";
         mass2.style.color = "#FFE81F";
     }
     else if(parseFloat(char1.mass) < parseFloat(char2.mass)){
-        mass2.style.color = "green";
+        mass2.style.color = "white";
         mass1.style.color = "#FFE81F";
     } else if(parseFloat(char1.mass) == parseFloat(char2.mass)){
-        mass1.style.color = "green";
-        mass2.style.color = "green";
+        mass1.style.color = "white";
+        mass2.style.color = "white";
     };
 
     if(char1.movies.length > char2.movies.length){
-        movies1.style.color = "green";
+        movies1.style.color = "white";
         movies2.style.color = "#FFE81F";
     }
     else if(char1.movies.length < char2.movies.length){
-        movies2.style.color = "green";
+        movies2.style.color = "white";
         movies1.style.color = "#FFE81F";
     } else {
-        movies1.style.color = "green";
-        movies2.style.color = "green";
+        movies1.style.color = "white";
+        movies2.style.color = "white";
     };
+
+    stars.style.height = "1600px";
+    twinkles.style.height = "1600px"
 }
 
 let loadCharacters = async () => {
