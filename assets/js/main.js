@@ -5,7 +5,8 @@ let compareBtn = document.querySelector(".compare-characters-btn");
 let articleMain = document.querySelector(".article-main");
 const loader = document.querySelector("#loading");
 const loadMessage = document.querySelector("#long-wait");
-let timerId = null;
+
+let timeoutID = null;
 
 // creating the characters
 let character1 = new Character();
@@ -27,21 +28,58 @@ let images = {
     "70": "../../assets/img/zam-wesell.png"
 };
 
+let topBtn = document.getElementById("take-me-top");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+window.topFunction = topFunction;
+
+
+function toggleExtraInfoDiv(){
+    const extraInfoDiv = document.querySelector(".char-extra-info-div");
+    const seeMoreBtn = document.querySelector("#see-more"); 
+
+    if(extraInfoDiv.style.display === "none"){
+        extraInfoDiv.style.display = "flex";
+        seeMoreBtn.textContent = "Close The Extra Info";
+    } else {
+        extraInfoDiv.style.display = "none";
+        seeMoreBtn.textContent = "See More";
+    }
+}
+// Makes the function work in html
+window.toggleExtraInfoDiv = toggleExtraInfoDiv;
+
 function displayLoading(){
     loader.classList.add("display");
     console.log("Loading in resources");
-    setTimeout(function () {
-        loadMessage.style.display = "block";
+    timeoutID = setTimeout(function () {
+                    loadMessage.style.display = "block";
     }, 5000);
 }
 
 function hideLoading(){
     loader.classList.remove("display");
     console.log("Loading done");
+    clearTimeout(timeoutID);
     loadMessage.style.display = "none";
 }
 
-async function getData(url){
+export async function getData(url){
     let data = await fetch(url);
     let json = await data.json();
     return json;
@@ -67,8 +105,9 @@ async function createCharacters(char1,char2){
     char1.eyeColor = data1.eye_color;
     char1.movies = data1.films;
     char1.image = images[value1];
-    console.log(char1.movies);
-
+    char1.homeworld = await char1.getHomeplanet(data1.homeworld);
+    char1.vehicles = data1.vehicles;
+    char1.starships = data1.starships;
     
     char2.name = data2.name;
     char2.gender = data2.gender;
@@ -79,6 +118,9 @@ async function createCharacters(char1,char2){
     char2.eyeColor = data2.eye_color;
     char2.movies = data2.films;
     char2.image = images[value2];
+    char2.homeworld = await char2.getHomeplanet(data2.homeworld);
+    char2.vehicles = data2.vehicles;
+    char2.starships = data2.starships;
 }
 
 async function renderCharacter(char1, char2){
@@ -100,6 +142,21 @@ async function renderCharacter(char1, char2){
     let movies2 = document.querySelector('[data-element-2="movies"]');
     let image1 = document.querySelector('[data-element-1="img"]');
     let image2 = document.querySelector('[data-element-2="img"]');
+    let appeared1 = document.querySelector('[data-element-1="appeared"]');
+    let appeared2 = document.querySelector('[data-element-2="appeared"]');
+    let bothAppeared = document.querySelector('[data-element-1="both-appeared"]');
+    let homeplanet1 = document.querySelector('[data-element-1="homeplanet');
+    let homeplanet2 = document.querySelector('[data-element-2="homeplanet');
+    let homeplanet3 = document.querySelector('[data-element-3="homeplanet');
+    let vehicle1 = document.querySelector('[data-element-1="vehicle');
+    let vehicle2 = document.querySelector('[data-element-2="vehicle');
+    let firstAppearanceChar1 =  await char1.getAppearanceDate();
+    let firstAppearanceChar2 =  await char2.getAppearanceDate();
+    let bothAppearedData = await char1.getMoviesFeaturedInWithOtherChar(char2);
+    let mostExpensiveTransport1 = await char1.getExpensiveVehicleOrStarship();
+    let mostExpensiveTransport2 = await char2.getExpensiveVehicleOrStarship();
+    console.log(mostExpensiveTransport1);
+    console.log(mostExpensiveTransport2);
 
     name1.textContent = char1.name;
     gender1.textContent = `Gender: ${char1.gender}` ;
@@ -110,8 +167,15 @@ async function renderCharacter(char1, char2){
     eyeColor1.textContent = `Eye Color: ${char1.eyeColor}`;
     movies1.textContent = `Movies: ${char1.movies.length}`;
     image1.setAttribute("src", `${char1.image}`)
+    appeared1.innerHTML = `<span style="color: #87CEFA;">${char1.name}</span> first appeared in "<span style="color: #FCB711;">${firstAppearanceChar1.title}</span>" on <span style="color: #2ECC71;">${firstAppearanceChar1.releaseDate}</span>`;
+    homeplanet1.innerHTML = `<span style="color: #87CEFA;">${char1.name}'s</span> homeplanet is <span style="color: #9B59B6;">${char1.homeworld}</span>`;
+    if (mostExpensiveTransport1 != null) {
+        vehicle1.innerHTML = `<span style="color: #87CEFA;">${char1.name}</span> most expensive vehicle is the <span style="color: #E74C3C;">${mostExpensiveTransport1.model}</span> which costs <span style="color: #2ECC71;">${mostExpensiveTransport1.cost_in_credits} credits</span>.<br>It is manufactured by <span style="color: #9B59B6;">${mostExpensiveTransport1.manufacturer}</span>.`;
+    } else {
+        vehicle1.innerHTML = `<span style="color: #87CEFA;">${char1.name}</span> doesn't own any vehicle or starship.`;
+    }
     
-
+    
     name2.textContent = char2.name;
     gender2.textContent = `Gender: ${char2.gender}` ;
     height2.textContent = `Height: ${char2.height}cm`;
@@ -121,6 +185,33 @@ async function renderCharacter(char1, char2){
     eyeColor2.textContent = `Eye Color: ${char2.eyeColor}`;
     movies2.textContent = `Movies: ${char2.movies.length}`;
     image2.setAttribute("src", `${char2.image}`)
+    appeared2.innerHTML = `<span style="color: #FFA07A;">${char2.name}</span> first appeared in "<span style="color: #FCB711;">${firstAppearanceChar2.title}</span>" on <span style="color: #2ECC71;">${firstAppearanceChar2.releaseDate}</span>`;
+    homeplanet2.innerHTML = `<span style="color: #FFA07A;">${char2.name}'s</span> homeplanet is <span style="color: #9B59B6;">${char2.homeworld}</span>`;
+    if (mostExpensiveTransport2 != null) {
+        vehicle2.innerHTML = `<span style="color: #FFA07A;">${char2.name}</span> most expensive vehicle is the <span style="color: #E74C3C;">${mostExpensiveTransport2.model}</span> which costs <span style="color: #2ECC71;">${mostExpensiveTransport2.cost_in_credits} credits</span>.<br>It is manufactured by <span style="color: #9B59B6;">${mostExpensiveTransport2.manufacturer}</span>.`;
+    } else {
+        vehicle2.innerHTML = `Weirdly enough, <span style="color: #FFA07A;">${char2.name}</span> doesn't own any vehicle or starship.`;
+    }
+
+
+    if(char1.homeworld === char2.homeworld){
+        homeplanet3.style.display = "block";
+        homeplanet1.style.display = "none";
+        homeplanet2.style.display = "none";
+        homeplanet3.textContent = `Both characters share ${char1.homeworld} as homeplanet`;
+    } else{
+        homeplanet3.style.display = "none";
+        homeplanet1.style.display = "block";
+        homeplanet2.style.display = "block";
+    }
+
+    if (bothAppearedData.length > 0) {
+        let lastElement = bothAppearedData.pop();
+        let moviesText = bothAppearedData.length > 0 ? bothAppearedData.join(', ') + ' and ' : '';
+        bothAppeared.innerHTML = `Both characters appeared in <span style="color: #FCB711;">${moviesText}${lastElement}</span>`;
+    } else {
+        bothAppeared.textContent = "Both characters did not appear in the same movies";
+    }
 
     if(gender1.textContent == gender2.textContent){
         gender1.style.color = "white";

@@ -9,3 +9,17 @@
     z-index: 2;
     position: relative;
 }
+
+.take-me-top {
+    width: fit-content;
+    background-color: hwb(0 50% 87% / 0.2);
+    backdrop-filter: blur(3px);
+    border: none;
+    padding: 10px 16px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20%;
+    right: 20%;
+}

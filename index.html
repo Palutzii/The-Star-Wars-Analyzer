@@ -49,50 +49,56 @@
             
 
             <article class="article-main hidden">
-                
-                <div class="char-container">
-                    <div class="char-name-container">
-                        <h2 class="char-name" data-element-1="name">Name</h2>
+                <div class="char-grid">
+                    <div class="char-container">
+                        <div class="char-name-container">
+                            <h2 class="char-name" data-element-1="name">Name</h2>
+                        </div>
                         <img src="" alt="" class="char-img" data-element-1="img">
+                        <div class="char-data-container">
+                            <span class="char-data" data-element-1="gender">gender</span>
+                            <span class="char-data" data-element-1="height">height</span>
+                            <span class="char-data" data-element-1="mass">mass</span>
+                            <span class="char-data" data-element-1="hairColor">hair color</span>
+                            <span class="char-data" data-element-1="skinColor">skin color</span>
+                            <span class="char-data" data-element-1="eyeColor">eye color</span>
+                            <span class="char-data" data-element-1="movies">movies</span>
+                        </div>
                     </div>
-                    <div class="char-data-container">
-                        <span class="char-data" data-element-1="gender">gender</span>
-                        <span class="char-data" data-element-1="height">height</span>
-                        <span class="char-data" data-element-1="mass">mass</span>
-                        <span class="char-data" data-element-1="hairColor">hair color</span>
-                        <span class="char-data" data-element-1="skinColor">skin color</span>
-                        <span class="char-data" data-element-1="eyeColor">eye color</span>
-                        <span class="char-data" data-element-1="movies">movies</span>
-                    </div>
-                </div>
-                <div class="char-container">
-                    <div class="char-name-container">
-                        <h2 class="char-name" data-element-2="name">Name 2</h2>
+                    <div class="char-container">
+                        <div class="char-name-container">
+                            <h2 class="char-name" data-element-2="name">Name 2</h2>
+                        </div>
                         <img src="" alt="" class="char-img" data-element-2="img">
-                    </div>
-                    <div class="char-data-container">
-                        <span class="char-data" data-element-2="gender">gender</span>
-                        <span class="char-data" data-element-2="height">height</span>
-                        <span class="char-data" data-element-2="mass">mass</span>
-                        <span class="char-data" data-element-2="hairColor">hair color</span>
-                        <span class="char-data" data-element-2="skinColor">skin color</span>
-                        <span class="char-data" data-element-2="eyeColor">eye color</span>
-                        <span class="char-data" data-element-2="movies">movies</span>
+                        <div class="char-data-container">
+                            <span class="char-data" data-element-2="gender">gender</span>
+                            <span class="char-data" data-element-2="height">height</span>
+                            <span class="char-data" data-element-2="mass">mass</span>
+                            <span class="char-data" data-element-2="hairColor">hair color</span>
+                            <span class="char-data" data-element-2="skinColor">skin color</span>
+                            <span class="char-data" data-element-2="eyeColor">eye color</span>
+                            <span class="char-data" data-element-2="movies">movies</span>
+                        </div>
                     </div>
                 </div>
                 <div class="char-extra-info-container">
-                    <button>When first appeared</button>
-                    <button>Both character appeared in</button>
-                    <button>Homeplanet</button>
-                    <button>Most expensive owned vehicle</button>
-                    <div class="char-extra-info-div">
-                        <span class="char-info" data-element-1="appeared">`(Character 1) first appeared in a movie 1990-05-25`</span>
-                        <span class="char-info" data-element-2="appeared">`(Character 2) first appeared in a movie 1990-05-25`</span>
-                        <span class="char-info" data-element-1="both-appeared">`Movies both character appeared in: `</span>
-                        <span class="char-info" data-element-1="homeplanet">`(Character 1) homeplanet is: xxx`</span>
-                        <span class="char-info" data-element-2="homeplanet">`(Character 2) homeplanet is: xxx`</span>
-                        <span class="char-info" data-element-3="homeplanet">`(Character 1 and 2) shared homeplanet is: xxx`</span>
-                        <span class="char-info" data-element-1="homeplanet">`(Character 1) most expensive vehicle is: xxx`</span>
+                    <button id="see-more" onclick="toggleExtraInfoDiv()">See More</button>
+                    <div class="char-extra-info-div char-container" style="display:none">
+                        <div class="appeared-container">
+                            <span class="char-info" data-element-1="appeared">`(Character 1) first appeared in a movie 1990-05-25`</span>
+                            <span class="char-info" data-element-2="appeared">`(Character 2) first appeared in a movie 1990-05-25`</span>
+                            <span class="char-info" data-element-1="both-appeared">`Movies both character appeared in: `</span>
+                        </div>
+                        
+                        <div class="homeplanet-container">
+                            <span class="char-info" data-element-1="homeplanet">`(Character 1) homeplanet is: xxx`</span>
+                            <span class="char-info" data-element-2="homeplanet">`(Character 2) homeplanet is: xxx`</span>
+                            <span class="char-info" data-element-3="homeplanet">`(Character 1 and 2) shared homeplanet is: xxx`</span>
+                        </div>
+                        <div class="expensive-container">
+                            <span class="char-info" data-element-1="vehicle">`(Character 1) most expensive vehicle is: xxx`</span>
+                            <span class="char-info" data-element-2="vehicle">`(Character 2) most expensive vehicle is: xxx`</span>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -101,6 +107,7 @@
     </main>
 
     <footer class="footer">
+        <button class="take-me-top" id="take-me-top" onclick="topFunction()" style="display: none;">Take me top</button>
         <span>Copyright 2023</span>
         <span>All rights reserved, Palutzii</span>
     </footer>

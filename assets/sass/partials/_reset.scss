@@ -10,6 +10,11 @@ body {
     height: 100%;
 }
 
+html{
+    
+    scroll-behavior: smooth;
+}
+
 .content-wrapper {
     max-width: 67.5rem; //1080px
     padding: 0 1rem;
