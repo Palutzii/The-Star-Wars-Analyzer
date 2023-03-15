@@ -153,8 +153,8 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   background-color: hwb(0 50% 87%/0.2);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
   border: none;
   padding: 10px 16px;
   margin-top: 1rem;
@@ -177,8 +177,8 @@ body {
   background-color: hwb(0 50% 87%/0.2);
   border-radius: 8px;
   padding: 10px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
 }
 .character-select select option {
   background-color: hwb(0 13% 87%/1);
@@ -291,8 +291,8 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   background-color: hwb(0 50% 87%/0.2);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
   border: none;
   padding: 10px 16px;
   margin-bottom: 1rem;
@@ -358,7 +358,21 @@ body {
   margin-bottom: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  position: fixed;
-  bottom: 20%;
-  right: 20%;
+}
+@media (min-width: 740px) {
+  .take-me-top {
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+  }
+}
+@media (min-width: 980px) {
+  .take-me-top {
+    position: fixed;
+    bottom: 13%;
+    right: 20%;
+  }
+}
+.take-me-top:hover {
+  background-color: hwb(0 50% 50%/0.2);
 }/*# sourceMappingURL=main.css.map */

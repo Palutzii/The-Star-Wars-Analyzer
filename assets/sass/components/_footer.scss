@@ -19,7 +19,20 @@
     margin-bottom: 1rem;
     border-radius: 8px;
     cursor: pointer;
-    position: fixed;
-    bottom: 20%;
-    right: 20%;
+
+    @include devices(tablet){
+        position: fixed;
+        bottom: 10%;
+        right: 10%;
+    }
+
+    @include devices(desktop){
+        position: fixed;
+        bottom: 13%;
+        right: 20%;
+    }
+
+    &:hover {
+        background-color: hwb(0 50% 50% / 0.2);
+    }
 }

@@ -55,10 +55,10 @@ function toggleExtraInfoDiv(){
 
     if(extraInfoDiv.style.display === "none"){
         extraInfoDiv.style.display = "flex";
-        seeMoreBtn.textContent = "Close The Extra Info";
+        seeMoreBtn.textContent = "Close The Cosmic Chronicles";
     } else {
         extraInfoDiv.style.display = "none";
-        seeMoreBtn.textContent = "See More";
+        seeMoreBtn.textContent = "Cosmic Chronicles";
     }
 }
 // Makes the function work in html
