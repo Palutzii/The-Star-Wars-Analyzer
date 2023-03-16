@@ -53,19 +53,18 @@
         padding: 10px;
         backdrop-filter: blur(3px);
 
+
         
         option {
             background-color: hwb(0 13% 87% / 1);
             border-radius: 8px;
             padding: 10px;
             backdrop-filter: blur(1px);
-    
             
-        }
-
-        option:hover {
-            background-color: red;
-            color: #FFE81F;
+            &:hover {
+                background-color: red;
+            }
+            
         }
         
     }

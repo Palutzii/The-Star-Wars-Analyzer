@@ -189,7 +189,6 @@ body {
 }
 .character-select select option:hover {
   background-color: red;
-  color: #FFE81F;
 }
 
 #loading {
